@@ -1,23 +1,18 @@
 import java.util.*;
 
-public class Main {
-    private static void requestValue(String letter, double [] array, int position) {
-        do {
-            System.out.print("Enter side " + letter + ": ");
-            Scanner sc = new Scanner(System.in);
-            array[position-1] = sc.nextDouble();
-            if (array[position-1] < 1) {
-                System.out.println("!Must be greater than 0!");
-            }
-        } while (array[position-1] < 1);
-    }
+class Main {
     public static void main(String[] args) {
-        double[] sidesArray = new double[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Welcome to Triangle area calculator.\nHow would you like to input the side lengths:\n1) Keyboard | 2) .txt File");
+        int choice = sc.nextInt();
 
-        requestValue("a", sidesArray, 1);
-        requestValue("b", sidesArray, 2);
-        requestValue("c", sidesArray, 3);
+        switch (choice){
+            case 1:
+                TriangleKBInput triangleKB = new TriangleKBInput();
+                break;
 
-        Triangle t = new Triangle(sidesArray[0], sidesArray[1], sidesArray[2]);
+            case 2:
+                TriangleFileInput triangleFile = new TriangleFileInput();
+        }
     }
 }
