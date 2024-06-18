@@ -1,6 +1,5 @@
 module ruizramos_jesus_2_group.ruizramos_jesus_2 {
     requires javafx.controls;
-    requires javafx.fxml;
 
     requires org.controlsfx.controls;
 
