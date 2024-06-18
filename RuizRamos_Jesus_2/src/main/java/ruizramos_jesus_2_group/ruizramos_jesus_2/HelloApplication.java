@@ -16,7 +16,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class HelloApplication extends Application {
     // Declare all value and label fields
@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
     private Pane pieChartPane;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         // Create text fields
         valueField1 = new TextField();
         valueField2 = new TextField();
@@ -65,7 +65,9 @@ public class HelloApplication extends Application {
         VBox mainLayout = new VBox(20, inputLayout, pieChartPane);
 
         // Assign values button action
-        generatePieChartButton.setOnAction(e -> generatePieChart(valueField1.getText(), valueField2.getText(), valueField3.getText(), valueField4.getText(), labelField1.getText(), labelField2.getText(), labelField3.getText(), labelField4.getText()));
+        generatePieChartButton.setOnAction(e -> {
+            generatePieChart(valueField1.getText(), valueField2.getText(), valueField3.getText(), valueField4.getText(), labelField1.getText(), labelField2.getText(), labelField3.getText(), labelField4.getText());
+        });
 
         // Assign file button action
         generatePieChartFromFile.setOnAction(e -> openFile());
@@ -87,16 +89,16 @@ public class HelloApplication extends Application {
 
         File file = fileChooser.showOpenDialog(new Stage());
         if (file != null) {
-            readFile(file);
+            System.out.println("Works");
         }
 
     }
 
-    private void readFile(File file) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
-
-        }
-    }
+//    private void readFile(File file) {
+//        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+//
+//        }
+//    }
 
     private void generatePieChart(String value1, String value2, String value3, String value4, String label1, String label2, String label3, String label4) {
         // Convert values to double
