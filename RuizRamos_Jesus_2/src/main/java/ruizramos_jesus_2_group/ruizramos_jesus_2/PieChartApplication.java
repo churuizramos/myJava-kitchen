@@ -4,7 +4,7 @@
  * An application that generates a pie chart from inputs. The Generate from file button is still a WIP. It will only opne a window and filter for txt files.
  * When a valid file is selected this will just print "Works" in the command line.
  *
- * This project is written using IntelliJ Idea. 
+ * This project is written using IntelliJ Idea.
  */
 
 package ruizramos_jesus_2_group.ruizramos_jesus_2;
@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 import java.io.*;
 //import java.util.Scanner;
 
-public class HelloApplication extends Application {
+public class PieChartApplication extends Application {
     // Declare all value and label fields
     private TextField valueField1, valueField2, valueField3, valueField4;
     private TextField labelField1, labelField2, labelField3, labelField4;
