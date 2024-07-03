@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+import java.text.Format;
 import java.util.ArrayList;
 
 /**
@@ -37,15 +39,24 @@ public class TransactionDB {
     public String toString() {
         String returnString = "";
         for (int i = 0; i < transactionsList.size(); i++) {
-            returnString += (transactionsList.get(i).toString() + "\n");
+            returnString += (i+1) + ": " + (transactionsList.get(i).toString() + "\n");
         }
         return returnString;
     }
 
-//    public double totalCost() {
-//        return 0.0;
-//    }
-//    public void printTrInDuration(int startYear, int endYear) {
-//        return;
-//    }
+    /**
+     * Sums up the total of all sales in the transactionsList
+     * @return salesTotal double
+     */
+    public double totalCost() {
+        double salesTotal = 0;
+        for (int i = 0; i < transactionsList.size(); i++) {
+            salesTotal += transactionsList.get(i).getSales();
+        }
+        return salesTotal;
+    }
+
+    public void printTrInDuration(int startYear, int endYear) {
+        return;
+    }
 }

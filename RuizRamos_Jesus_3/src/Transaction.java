@@ -31,4 +31,10 @@ public class Transaction {
     public String getSeller() {
         return seller.toString();
     }
+    public double getSales() {
+        return sales;
+    }
+    public int getYear() {
+        return year;
+    }
 }
