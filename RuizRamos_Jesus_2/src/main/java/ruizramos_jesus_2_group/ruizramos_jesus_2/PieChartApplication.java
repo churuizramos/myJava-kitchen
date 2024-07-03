@@ -1,4 +1,5 @@
 /**
+ * RuizRamos_Jesus_2
  * Created by Jesus Ruiz Ramos
  *
  * An application that generates a pie chart from inputs. The Generate from file button is still a WIP. It will only open a window and filter for txt files.
@@ -7,6 +8,11 @@
  * This project is written using IntelliJ Idea.
  * Written using OpenJDK 22.0.1
  * JavaFX provided automatically by IntelliJ, so I could not find which version of JavaFX this uses.
+ *
+ * Original code at https://github.com/churuizramos/my-java-kitchen
+ *
+ * Notes:
+ *      Could not get the file reading to work. For now the File button just opens a dialog, but it doesn't do anything.
  */
 
 package ruizramos_jesus_2_group.ruizramos_jesus_2;
@@ -63,9 +69,11 @@ public class PieChartApplication extends Application {
         HBox inputBox4 = new HBox(10, new Label("Value 4:"), valueField4, new Label("Label 4:"), labelField4);
         inputBox4.setAlignment(Pos.CENTER);
 
+        // Organize buttons
         HBox buttons = new HBox(10, generatePieChartButton, generatePieChartFromFile);
         buttons.setAlignment(Pos.CENTER);
 
+        // Organize all HBox objects together
         VBox inputLayout = new VBox(10, inputBox1, inputBox2, inputBox3, inputBox4, buttons);
 
         // Pane to display pie chart
@@ -90,6 +98,9 @@ public class PieChartApplication extends Application {
         stage.show();
     }
 
+    /**
+     * Opens a file chooser (Testing purposes only)
+     */
     private void openFile() {
         String[] fileValues = new String[4];
         String[] fileLabels = new String[4];
@@ -111,6 +122,18 @@ public class PieChartApplication extends Application {
 //        }
 //    }
 
+    /**
+     * Generates a pie chart from inputted String objects
+     * @param value1 First value
+     * @param value2 Second value
+     * @param value3 Third value
+     * @param value4 Fourth value
+     *
+     * @param label1 First label
+     * @param label2 Second label
+     * @param label3 Third label
+     * @param label4 Fourth label
+     */
     private void generatePieChart(String value1, String value2, String value3, String value4, String label1, String label2, String label3, String label4) {
         // Convert values to double
         double doubleValue1 = Double.parseDouble(value1);
@@ -128,6 +151,7 @@ public class PieChartApplication extends Application {
         // Colors for segments
         Color[] colors = {Color.RED, Color.BLUE, Color.ORANGE, Color.GREEN};
 
+        // Draws the arcs
         double angle = 0;
         for (int i = 0; i < percentages.length; i++) {
             double arcExtent = percentages[i] * 360;
@@ -152,6 +176,10 @@ public class PieChartApplication extends Application {
         }
     }
 
+    /**
+     * Initiates the application
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }
