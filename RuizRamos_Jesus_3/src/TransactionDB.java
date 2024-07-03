@@ -56,7 +56,16 @@ public class TransactionDB {
         return salesTotal;
     }
 
+    /**
+     * Prints all the transactions in the transactionList within a start and end year
+     * @param startYear starting integer
+     * @param endYear ending integer
+     */
     public void printTrInDuration(int startYear, int endYear) {
-        return;
+        for (int i = 0; i < transactionsList.size(); i++) {
+            if (transactionsList.get(i).getYear() >= startYear && transactionsList.get(i).getYear() <= endYear) {
+                System.out.println((i+1) + ": " + transactionsList.get(i).toString());
+            }
+        }
     }
 }
