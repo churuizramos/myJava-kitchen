@@ -1,11 +1,26 @@
+import java.util.*;
+import java.text.*;
+
 public class Main {
     public static void main(String[] args) {
-        Collector John = new Collector(1,"John",'a');
-        Collector Joe = new Collector(2,"Joe",'b');
-        System.out.println(John.toString());
-        System.out.println(Joe.toString());
+        TransactionDB trDB = new TransactionDB();
 
-        Transaction trans1 = new Transaction("Michelangelo", John, Joe, 2000, 2013);
-        System.out.println(trans1.toString());
+        trDB.add(new Transaction(
+                "Mona Lisa",
+                new Collector(123,"John",'C'),
+                new Collector(124, "Joe",'C'),
+                2000,
+                2014
+        ));
+        trDB.add(new Transaction(
+                "David",
+                new Collector(124,"Joe",'C'),
+                new Collector(125,"Mike",'N'),
+                30000,
+                1996
+        ));
+
+        System.out.println(trDB.getEntry(0));
+        System.out.println(trDB.toString());
     }
 }

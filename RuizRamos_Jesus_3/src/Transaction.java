@@ -1,10 +1,12 @@
+import java.text.DecimalFormat;
+
 /**
  * Including information about a transaction involving any piece of art
  */
 public class Transaction {
     private String pieceName;
     private double sales;
-    private double year;
+    private int year;
 
     private Collector seller, buyer;
 
@@ -16,6 +18,17 @@ public class Transaction {
         this.year = year;
     }
     public String toString() {
-        return "[" + pieceName + " sold by " + seller + " to " + buyer + " for $" + sales + " in " + year + "]";
+        DecimalFormat salesFormat = new DecimalFormat("0.00");
+        return "[" + pieceName + " sold by " + seller + " to " + buyer + " for $" + salesFormat.format(sales) + " in " + year + "]";
+    }
+
+    /**
+     * Getters
+     */
+    public String getBuyer() {
+        return buyer.toString();
+    }
+    public String getSeller() {
+        return seller.toString();
     }
 }

@@ -11,6 +11,9 @@ public class Collector {
         this.colName = colName;
         this.category = category;
     }
+    public String getColName() {
+        return colName;
+    }
     public String toString() {
         return "{ID: " + colID + " | Name: " + colName + " | Cat: " + category + "}";
     }
