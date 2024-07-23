@@ -10,9 +10,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2j2T0723IRta1152Hkgb76HaR5i" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -21,7 +21,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "update-branch",
+    "git-widget-placeholder": "development",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Dev/GitHub/my-java-kitchen/RuizRamos_Jesus_3",
     "nodejs_package_manager_path": "npm",
@@ -45,6 +45,7 @@
       <option name="presentableId" value="Default" />
       <updated>1720583946687</updated>
       <workItem from="1720583947410" duration="61000" />
+      <workItem from="1720908246845" duration="208000" />
     </task>
     <servers />
   </component>

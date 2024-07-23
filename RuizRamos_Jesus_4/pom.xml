@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                ruizramos_jesus_2_group.ruizramos_jesus_4/ruizramos_jesus_2_group.ruizramos_jesus_4.HelloApplication
+                                ruizramos_jesus_2_group.ruizramos_jesus_4/ruizramos_jesus_2_group.ruizramos_jesus_4.Application
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

@@ -1,6 +1,5 @@
 package ruizramos_jesus_2_group.ruizramos_jesus_4;
 
-import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.text.Text;
@@ -8,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         Text helloWorld = new Text(50,50,"Hello World");
