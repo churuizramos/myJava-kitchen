@@ -26,21 +26,13 @@ import java.text.DecimalFormat;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        /**
-         * default variables
-         */
-        double carXExtension = 0;
-        /**
-         * car render
-         */
-
         //windows
         Polygon frontWindow = new Polygon();
         frontWindow.setFill(Color.LIGHTBLUE);
         frontWindow.setStroke(Color.BLACK);
         frontWindow.getPoints().addAll(new Double[]{
-                270.0 + carXExtension,90.0,
-                320.0 + carXExtension,140.0,
+                270.0,90.0,
+                320.0,140.0,
                 205.0,140.0,
                 185.0,90.0,
         });
@@ -72,20 +64,20 @@ public class Application extends javafx.application.Application {
 
                 //roofline
                 100.0,80.0, //p4
-                270.0 + carXExtension,80.0, //p5
+                270.0,80.0, //p5
 
                 //front
-                330.0 + carXExtension,140.0, //p6
-                390.0 + carXExtension,150.0, //p7
-                400.0 + carXExtension,200.0, //p8
+                330.0,140.0, //p6
+                390.0,150.0, //p7
+                400.0,200.0, //p8
 
                 //wheel well 1
-                360.0 + carXExtension,200.0,
-                360.0 + carXExtension,180.0,
-                340.0 + carXExtension,160.0,
-                310.0 + carXExtension,160.0,
-                290.0 + carXExtension,180.0,
-                290.0 + carXExtension,200.0,
+                360.0,200.0,
+                360.0,180.0,
+                340.0,160.0,
+                310.0,160.0,
+                290.0,180.0,
+                290.0,200.0,
 
                 //wheel well 2
                 150.0,200.0,
@@ -109,12 +101,9 @@ public class Application extends javafx.application.Application {
         Group car = new Group(body,windows,wheel1,wheel2);
         Pane display = new Pane(car);
 
-        /**
-         * controls
-         */
         //slider to change the length of the car
         Label lengthSliderLabel = new Label("Length: ");
-        Text lengthValueText = new Text("" + carXExtension);
+        Text lengthValueText = new Text("0.0");
         Slider lengthSlider = new Slider(0.0,50.0,0.0);
         lengthSlider.valueProperty().addListener(
                 new ChangeListener<Number>() {
