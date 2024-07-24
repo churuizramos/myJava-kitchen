@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DialogEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
@@ -114,6 +115,19 @@ public class Application extends javafx.application.Application {
         );
         HBox lengthSliderBox = new HBox(lengthSliderLabel,lengthSlider,lengthValueText);
 
+        //slider to change the wheel size of the car
+        Label tireWidthLabel = new Label("Tire Width: ");
+        Text tireWidthValue = new Text("30.0");
+        Slider tireWidthSlider = new Slider(10.0,100.0,30.0);
+        tireWidthSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                tireWidthValue.setText("" + new DecimalFormat("#.#").format(t1));
+                updateTireWidth(tire1,tire2,t1.doubleValue());
+            }
+        });
+        HBox tireWidthSliderBox = new HBox(tireWidthLabel,tireWidthSlider,tireWidthValue);
+
         //dropdown box to change the color of the car
         Label colorSelectLabel = new Label("Car Color: ");
         ChoiceBox colorSelect = new ChoiceBox();
@@ -151,7 +165,7 @@ public class Application extends javafx.application.Application {
         });
         HBox colorSelectBox = new HBox(colorSelectLabel,colorSelect);
 
-        HBox controlsBox = new HBox(lengthSliderBox,colorSelectBox);
+        HBox controlsBox = new HBox(lengthSliderBox,tireWidthSliderBox,colorSelectBox);
         controlsBox.setSpacing(30);
         controlsBox.setAlignment(Pos.CENTER);
 
@@ -160,10 +174,15 @@ public class Application extends javafx.application.Application {
          */
         VBox root = new VBox(display, controlsBox);
         root.setSpacing(30);
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 900, 400);
         stage.setTitle("Car Designer");
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void updateTireWidth(Circle wheel1, Circle wheel2, double radius){
+        wheel1.setRadius(radius);
+        wheel2.setRadius(radius);
     }
 
     private void updateCarLength(Polygon car, Polygon window, Circle rim, Circle tire, Rectangle internal, double carExtension){
