@@ -6,7 +6,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
@@ -19,7 +18,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
@@ -102,9 +100,9 @@ public class Application extends javafx.application.Application {
         Pane display = new Pane(car);
 
         //slider to change the length of the car
-        Label lengthSliderLabel = new Label("Length: ");
+        Label lengthSliderLabel = new Label("Car Length: ");
         Text lengthValueText = new Text("0.0");
-        Slider lengthSlider = new Slider(0.0,50.0,0.0);
+        Slider lengthSlider = new Slider(0.0,100.0,0.0);
         lengthSlider.valueProperty().addListener(
                 new ChangeListener<Number>() {
                     @Override
@@ -117,9 +115,9 @@ public class Application extends javafx.application.Application {
         HBox lengthSliderBox = new HBox(lengthSliderLabel,lengthSlider,lengthValueText);
 
         //dropdown box to change the color of the car
-        Label colorSelectLabel = new Label("Color: ");
+        Label colorSelectLabel = new Label("Car Color: ");
         ChoiceBox colorSelect = new ChoiceBox();
-        colorSelect.getItems().addAll("Red","Blue","Orange","Purple");
+        colorSelect.getItems().addAll("Red","Blue","Orange","Purple","Black","White","Yellow","Green");
         colorSelect.setOnAction(e->{
             String selectedColor = (String) colorSelect.getValue();
             Color selectedFillColor = Color.WHITE;
@@ -135,6 +133,18 @@ public class Application extends javafx.application.Application {
                     break;
                 case "Purple":
                     selectedFillColor = Color.PURPLE;
+                    break;
+                case "Black":
+                    selectedFillColor = Color.BLACK;
+                    break;
+                case "White":
+                    selectedFillColor = Color.WHITE;
+                    break;
+                case "Yellow":
+                    selectedFillColor = Color.YELLOW;
+                    break;
+                case "Green":
+                    selectedFillColor = Color.GREEN;
                     break;
             }
             chassis.setFill(selectedFillColor);
