@@ -110,6 +110,7 @@ public class Application extends javafx.application.Application {
                     @Override
                     public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
                         lengthValueText.setText("" + new DecimalFormat("#.#").format(t1));
+                        updateCarLength(chassis, frontWindow, rim1, tire1, internals, t1.doubleValue());
                     }
                 }
         );
@@ -153,6 +154,52 @@ public class Application extends javafx.application.Application {
         stage.setTitle("Car Designer");
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void updateCarLength(Polygon car, Polygon window, Circle rim, Circle tire, Rectangle internal, double carExtension){
+        car.getPoints().setAll(new Double[]{
+                //back
+                50.0,200.0, //p1
+                40.0,120.0, //p2
+                70.0,90.0, //p3
+
+                //roofline
+                100.0,80.0, //p4
+                270.0 + carExtension,80.0, //p5
+
+                //front
+                330.0 + carExtension,140.0, //p6
+                390.0 + carExtension,150.0, //p7
+                400.0 + carExtension,200.0, //p8
+
+                //wheel well 1
+                360.0 + carExtension,200.0,
+                360.0 + carExtension,180.0,
+                340.0 + carExtension,160.0,
+                310.0 + carExtension,160.0,
+                290.0 + carExtension,180.0,
+                290.0 + carExtension,200.0,
+
+                //wheel well 2
+                150.0,200.0,
+                150.0,180.0,
+                130.0,160.0,
+                100.0,160.0,
+                80.0,180.0,
+                80.0,200.0
+        });
+
+        window.getPoints().setAll(new Double[]{
+                270.0 + carExtension,90.0,
+                320.0 + carExtension,140.0,
+                205.0,140.0,
+                185.0,90.0,
+        });
+
+        rim.setCenterX(325.0 + carExtension);
+        tire.setCenterX(325.0 + carExtension);
+
+        internal.setWidth(300.0 + carExtension);
     }
 
     public static void main(String[] args) {
